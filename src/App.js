@@ -18,10 +18,18 @@ export default function App() {
 return<div key={i}> <h3>{elem.title} </h3>
 <p>{elem.body}</p>
 <button>click here!</button>
-<input type="text" placeholder="type here"/>
-<input type="text" placeholder="type here"/>
-<input type="text" placeholder="type here"/>
-<input type="text" placeholder="type here"/>
+<input type="text" placeholder="type here" onChange={(e) => {
+          setUserId(e.target.value);
+        }}/>
+<input type="text" placeholder="type here" onChange={(e) => {
+          setId(e.target.value);
+        }}/>
+<input type="text" placeholder="type here" onChange={(e) => {
+          setTitle(e.target.value);
+        }}/>
+<input type="text" placeholder="type here" onChange={(e) => {
+          setBody(e.target.value);
+        }}/>
  </div>
 })
 } 
