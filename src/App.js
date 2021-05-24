@@ -11,26 +11,33 @@ export default function App() {
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
 
+const addPost=()=>{
+  const newPost=[{ userId:userId, id:id, title:title, body:body }]
+setPosts([...posts,...newPost])
+  console.log(posts)
+};
+
   return(<> 
-  {console.log(posts)}
+  {/* {console.log(posts)} */}
   <div><h1>Blog App</h1></div>;
 {posts.map((elem,i)=>{
 return<div key={i}> <h3>{elem.title} </h3>
 <p>{elem.body}</p>
-<button>click here!</button>
-<input type="text" placeholder="type here" onChange={(e) => {
+</div>
+
+})} 
+<input type="text" placeholder="user id" onChange={(e) => {
           setUserId(e.target.value);
         }}/>
-<input type="text" placeholder="type here" onChange={(e) => {
+<input type="text" placeholder="id" onChange={(e) => {
           setId(e.target.value);
         }}/>
-<input type="text" placeholder="type here" onChange={(e) => {
+<input type="text" placeholder="title" onChange={(e) => {
           setTitle(e.target.value);
         }}/>
-<input type="text" placeholder="type here" onChange={(e) => {
+<input type="text" placeholder="body" onChange={(e) => {
           setBody(e.target.value);
         }}/>
- </div>
-})
-} 
+
+<button onClick={(addPost)}>click here!</button>
   </>)};
