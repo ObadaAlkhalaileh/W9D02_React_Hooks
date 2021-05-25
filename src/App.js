@@ -14,6 +14,7 @@ export default function App() {
 
   useEffect(() => {
     console.log('placholder posts');
+    console.log();
     getData();
   }, []);
 
@@ -21,7 +22,9 @@ export default function App() {
     axios
       .get(`https://jsonplaceholder.typicode.com/users`)
       .then((response) => {  
+        console.log(response.data);
         setPosts(response.data);
+        
       })
       .catch((err) => {
         console.log('ERR: ', err);
@@ -40,8 +43,8 @@ setPosts([...posts,...newPost])
   {/* {console.log(posts)} */}
   <div><h1>Blog App</h1></div>
 {posts.map((elem,i)=>{
-return<div key={i}> <h3>{elem.title} </h3>
-<p>{elem.body}</p>
+return<div key={i}> <h3>{elem.name} </h3>
+<p>{elem.email}</p>
 </div>
 })} 
 <input type="text" placeholder="user id" onChange={(e) => {
